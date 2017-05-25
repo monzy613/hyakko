@@ -11,6 +11,7 @@ import SnapKit
 import AVFoundation
 
 let kButtonWidth: CGFloat = 70
+let kNameTempFile = "temp.m4a"
 
 class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
 
@@ -24,7 +25,7 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
     lazy var recorder: AVAudioRecorder? = {
         // path
         var pathComponents = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        pathComponents.append("temp.m4a")
+        pathComponents.append(kNameTempFile)
         let outputURL = NSURL.fileURL(withPathComponents: pathComponents)
 
         // session
@@ -67,7 +68,8 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
     }()
 
     lazy var recordingButton: RecordingButton = {
-        let button = RecordingButton(frame: CGRect(x: self.view.center.x - 52 / 2.0, y: self.view.frame.height - 52 - 30, width: 52, height: 52))
+        let width: CGFloat = 60
+        let button = RecordingButton(frame: CGRect(x: self.view.center.x - width / 2.0, y: self.view.frame.height - width - 30, width: width, height: width))
         button.delegate = self
         return button
     }()
@@ -90,6 +92,9 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
 
     lazy var deleteButton: UIButton = {
         let button = UIButton(type: .system)
+        button.tintColor = .red
+        button.setImage(UIImage(named: "delete"), for: .normal)
+        button.alpha = 0
         button.frame = CGRect(x: 0, y: 0, width: kButtonWidth, height: kButtonWidth)
         button.layer.cornerRadius = kButtonWidth / 2.0
         button.backgroundColor = UIColor(displayP3Red: 216/255.0, green: 216/255.0, blue: 216/255.0, alpha: 1)
@@ -97,11 +102,18 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
         var center = self.view.center
         center.y = self.view.bounds.height - kButtonWidth * 1.5
         button.center = center
+        button.addTarget(self, action: #selector(deleteCurrent), for: .touchUpInside)
         return button
     }()
 
     lazy var saveButton: UIButton = {
         let button = UIButton(type: .system)
+        button.tintColor = UIColor(displayP3Red: 0,
+                                   green: 190.0/255.0,
+                                   blue: 0,
+                                   alpha: 1)
+        button.setImage(UIImage(named: "add"), for: .normal)
+        button.alpha = 0
         button.frame = CGRect(x: 0, y: 0, width: kButtonWidth, height: kButtonWidth)
         button.layer.cornerRadius = kButtonWidth / 2.0
         button.backgroundColor = .white
@@ -109,6 +121,7 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
         var center = self.view.center
         center.y = self.view.bounds.height - kButtonWidth * 1.5
         button.center = center
+        button.addTarget(self, action: #selector(save), for: .touchUpInside)
         return button
     }()
 
@@ -136,6 +149,25 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
         setupConstraints()
     }
 
+    // MARK: private
+    private func finishRecording() {
+        playButton.isHidden = false
+        hintLabel.isHidden = true
+
+        // animating
+        UIView.animate(withDuration: 0.5) {
+            var newDeleteCenter = self.deleteButton.center
+            var newSaveCenter = self.saveButton.center
+            newDeleteCenter.x = self.view.bounds.width / 4.0
+            newSaveCenter.x = self.view.bounds.width * 3 / 4.0
+
+            self.deleteButton.center = newDeleteCenter
+            self.deleteButton.alpha = 1
+            self.saveButton.center = newSaveCenter
+            self.saveButton.alpha = 1
+        }
+    }
+
     private func setupConstraints() {
         playButton.snp.makeConstraints { make in
             make.center.equalTo(self.view)
@@ -152,9 +184,71 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
         }
     }
 
+    private func onSaveOrCancel() {
+        UIView.animate(withDuration: 0.5, animations: { 
+            var newCenter = self.deleteButton.center
+            newCenter.x = self.view.bounds.width / 2.0
+
+            self.deleteButton.center = newCenter
+            self.deleteButton.alpha = 0
+            self.saveButton.center = newCenter
+            self.saveButton.alpha = 0
+        }) { finished in
+            self.hintLabel.isHidden = true
+            self.playButton.isHidden = true
+            self.recordingButton.reset(animated: true, handler: nil)
+        }
+    }
+
     // MARK: Action Handlers
+    func deleteCurrent() {
+        onSaveOrCancel()
+    }
+
+    func save() {
+        onSaveOrCancel()
+        let alertController = UIAlertController(title: nil, message: "保存为", preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "请输入文件名"
+            textField.text = "新笔记"
+        }
+        alertController.addAction(UIAlertAction(title: "确定", style: .default) {
+            _ in
+            let displayName = alertController.textFields?.first?.text ?? "新笔记"
+
+            let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            let documentsDirectory = paths[0] as NSString
+            let dataPath = documentsDirectory.appendingPathComponent("save")
+            if (!FileManager.default.fileExists(atPath: dataPath)) {
+                do {
+                    try FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+            let saveDate = Date()
+
+            let newFileName = "\(saveDate.description).m4a"
+
+            let tempFilePath = documentsDirectory.appendingPathComponent(kNameTempFile)
+            let newFilePath = (dataPath as NSString).appendingPathComponent(newFileName)
+
+            CoreDataConnect.shared().save(displayName: displayName, saveDate: saveDate, filePath: newFilePath)
+            do {
+                // newFilePath
+                try FileManager.default.copyItem(atPath: tempFilePath, toPath: newFilePath)
+                try FileManager.default.removeItem(atPath: tempFilePath)
+            } catch let error as NSError {
+                print("Ooops! Something went wrong: \(error)")
+            }
+        })
+        alertController.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
+
     func goToRecordList() {
-        navigationController?.pushViewController(RecordListViewController(), animated: true)
+        let recordListVC = RecordListViewController(style: .plain)
+        navigationController?.pushViewController(recordListVC, animated: true)
     }
 
     func play() {
@@ -179,6 +273,7 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
                     player?.delegate = self
                     player?.play()
                 } catch {
+                    fatalError("\(error)")
                 }
             }
         }
@@ -234,12 +329,7 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
 
     // MARK: AVAudioRecorderDelegate
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        playButton.isHidden = false
-        hintLabel.isHidden = true
-
-        let alertController = UIAlertController(title: nil, message: "finished", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "ok", style: .default, handler: nil))
-        present(alertController, animated: true, completion: nil)
+        finishRecording()
     }
 
     // MARK: AVAudioPlayerDelegate

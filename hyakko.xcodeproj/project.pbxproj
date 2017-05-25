@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		D9B9B244F12525A3C3DB7168 /* Pods_hyakko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0B228391B8EE0B39ED1B38 /* Pods_hyakko.framework */; };
 		F44ABA1E1ED68C3D00A9C4B5 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44ABA1D1ED68C3D00A9C4B5 /* RecordViewController.swift */; };
-		F44ABA201ED68C4D00A9C4B5 /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44ABA1F1ED68C4D00A9C4B5 /* RecordListViewController.swift */; };
 		F4792F981ED681FA00F6E144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4792F971ED681FA00F6E144 /* AppDelegate.swift */; };
 		F4792FA01ED681FA00F6E144 /* hyakko.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4792F9E1ED681FA00F6E144 /* hyakko.xcdatamodeld */; };
 		F4792FA21ED681FA00F6E144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4792FA11ED681FA00F6E144 /* Assets.xcassets */; };
 		F4792FA51ED681FA00F6E144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4792FA31ED681FA00F6E144 /* LaunchScreen.storyboard */; };
 		F4A550521ED6AEB50068D715 /* RecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A550511ED6AEB50068D715 /* RecordingButton.swift */; };
+		F4E90D291ED7163400B40804 /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D281ED7163400B40804 /* RecordListViewController.swift */; };
+		F4E90D2C1ED7181700B40804 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D2B1ED7181700B40804 /* CoreDataConnect.swift */; };
+		F4E90D2F1ED71C3F00B40804 /* AudioSaveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D2D1ED71C3F00B40804 /* AudioSaveInfo.swift */; };
+		F4E90D301ED71C3F00B40804 /* AudioSaveInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D2E1ED71C3F00B40804 /* AudioSaveInfo+CoreDataProperties.swift */; };
+		F4E90D321ED71D6100B40804 /* VoiceNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D311ED71D6100B40804 /* VoiceNoteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +26,6 @@
 		5A0B228391B8EE0B39ED1B38 /* Pods_hyakko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hyakko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEAFE5391F8AFC400D961833 /* Pods-hyakko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hyakko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hyakko/Pods-hyakko.debug.xcconfig"; sourceTree = "<group>"; };
 		F44ABA1D1ED68C3D00A9C4B5 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
-		F44ABA1F1ED68C4D00A9C4B5 /* RecordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
 		F4792F941ED681FA00F6E144 /* hyakko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hyakko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4792F971ED681FA00F6E144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4792F9F1ED681FA00F6E144 /* hyakko.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hyakko.xcdatamodel; sourceTree = "<group>"; };
@@ -30,6 +33,11 @@
 		F4792FA41ED681FA00F6E144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4792FA61ED681FA00F6E144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F4A550511ED6AEB50068D715 /* RecordingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingButton.swift; sourceTree = "<group>"; };
+		F4E90D281ED7163400B40804 /* RecordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
+		F4E90D2B1ED7181700B40804 /* CoreDataConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
+		F4E90D2D1ED71C3F00B40804 /* AudioSaveInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioSaveInfo.swift; sourceTree = "<group>"; };
+		F4E90D2E1ED71C3F00B40804 /* AudioSaveInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioSaveInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F4E90D311ED71D6100B40804 /* VoiceNoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceNoteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				F44ABA1D1ED68C3D00A9C4B5 /* RecordViewController.swift */,
-				F44ABA1F1ED68C4D00A9C4B5 /* RecordListViewController.swift */,
+				F4E90D281ED7163400B40804 /* RecordListViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -84,8 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				F4792F971ED681FA00F6E144 /* AppDelegate.swift */,
+				F4E90D131ED711D000B40804 /* CoreData */,
 				F44ABA1A1ED68BF200A9C4B5 /* ViewControllers */,
 				F44ABA211ED68C6200A9C4B5 /* Views */,
+				F4E90D2A1ED717CA00B40804 /* Tool */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -94,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				F4A550511ED6AEB50068D715 /* RecordingButton.swift */,
+				F4E90D311ED71D6100B40804 /* VoiceNoteCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -124,6 +135,23 @@
 				F4792FA61ED681FA00F6E144 /* Info.plist */,
 			);
 			path = hyakko;
+			sourceTree = "<group>";
+		};
+		F4E90D131ED711D000B40804 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				F4E90D2D1ED71C3F00B40804 /* AudioSaveInfo.swift */,
+				F4E90D2E1ED71C3F00B40804 /* AudioSaveInfo+CoreDataProperties.swift */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		F4E90D2A1ED717CA00B40804 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F4E90D2B1ED7181700B40804 /* CoreDataConnect.swift */,
+			);
+			name = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,9 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4792F981ED681FA00F6E144 /* AppDelegate.swift in Sources */,
+				F4E90D321ED71D6100B40804 /* VoiceNoteCell.swift in Sources */,
+				F4E90D301ED71C3F00B40804 /* AudioSaveInfo+CoreDataProperties.swift in Sources */,
+				F4E90D291ED7163400B40804 /* RecordListViewController.swift in Sources */,
 				F4A550521ED6AEB50068D715 /* RecordingButton.swift in Sources */,
+				F4E90D2F1ED71C3F00B40804 /* AudioSaveInfo.swift in Sources */,
 				F4792FA01ED681FA00F6E144 /* hyakko.xcdatamodeld in Sources */,
-				F44ABA201ED68C4D00A9C4B5 /* RecordListViewController.swift in Sources */,
+				F4E90D2C1ED7181700B40804 /* CoreDataConnect.swift in Sources */,
 				F44ABA1E1ED68C3D00A9C4B5 /* RecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
