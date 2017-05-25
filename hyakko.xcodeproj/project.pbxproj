@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9B9B244F12525A3C3DB7168 /* Pods_hyakko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A0B228391B8EE0B39ED1B38 /* Pods_hyakko.framework */; };
+		F44ABA1E1ED68C3D00A9C4B5 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44ABA1D1ED68C3D00A9C4B5 /* RecordViewController.swift */; };
+		F44ABA201ED68C4D00A9C4B5 /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44ABA1F1ED68C4D00A9C4B5 /* RecordListViewController.swift */; };
 		F4792F981ED681FA00F6E144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4792F971ED681FA00F6E144 /* AppDelegate.swift */; };
-		F4792F9A1ED681FA00F6E144 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4792F991ED681FA00F6E144 /* ViewController.swift */; };
-		F4792F9D1ED681FA00F6E144 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4792F9B1ED681FA00F6E144 /* Main.storyboard */; };
 		F4792FA01ED681FA00F6E144 /* hyakko.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4792F9E1ED681FA00F6E144 /* hyakko.xcdatamodeld */; };
 		F4792FA21ED681FA00F6E144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4792FA11ED681FA00F6E144 /* Assets.xcassets */; };
 		F4792FA51ED681FA00F6E144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4792FA31ED681FA00F6E144 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4051B4239E550A7815240CFA /* Pods-hyakko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hyakko.release.xcconfig"; path = "Pods/Target Support Files/Pods-hyakko/Pods-hyakko.release.xcconfig"; sourceTree = "<group>"; };
+		5A0B228391B8EE0B39ED1B38 /* Pods_hyakko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hyakko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEAFE5391F8AFC400D961833 /* Pods-hyakko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hyakko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hyakko/Pods-hyakko.debug.xcconfig"; sourceTree = "<group>"; };
+		F44ABA1D1ED68C3D00A9C4B5 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		F44ABA1F1ED68C4D00A9C4B5 /* RecordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
 		F4792F941ED681FA00F6E144 /* hyakko.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hyakko.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4792F971ED681FA00F6E144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F4792F991ED681FA00F6E144 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F4792F9C1ED681FA00F6E144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F4792F9F1ED681FA00F6E144 /* hyakko.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = hyakko.xcdatamodel; sourceTree = "<group>"; };
 		F4792FA11ED681FA00F6E144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4792FA41ED681FA00F6E144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,17 +35,73 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9B9B244F12525A3C3DB7168 /* Pods_hyakko.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A624BD014A474133DC529B37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A0B228391B8EE0B39ED1B38 /* Pods_hyakko.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4FEE2872289608ADA68D351 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEAFE5391F8AFC400D961833 /* Pods-hyakko.debug.xcconfig */,
+				4051B4239E550A7815240CFA /* Pods-hyakko.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F44ABA1A1ED68BF200A9C4B5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F44ABA1D1ED68C3D00A9C4B5 /* RecordViewController.swift */,
+				F44ABA1F1ED68C4D00A9C4B5 /* RecordListViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F44ABA1B1ED68C0800A9C4B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F4792F9E1ED681FA00F6E144 /* hyakko.xcdatamodeld */,
+				F4792FA31ED681FA00F6E144 /* LaunchScreen.storyboard */,
+				F4792FA11ED681FA00F6E144 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F44ABA1C1ED68C1D00A9C4B5 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				F4792F971ED681FA00F6E144 /* AppDelegate.swift */,
+				F44ABA1A1ED68BF200A9C4B5 /* ViewControllers */,
+				F44ABA211ED68C6200A9C4B5 /* Views */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		F44ABA211ED68C6200A9C4B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		F4792F8B1ED681FA00F6E144 = {
 			isa = PBXGroup;
 			children = (
 				F4792F961ED681FA00F6E144 /* hyakko */,
 				F4792F951ED681FA00F6E144 /* Products */,
+				B4FEE2872289608ADA68D351 /* Pods */,
+				A624BD014A474133DC529B37 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +116,9 @@
 		F4792F961ED681FA00F6E144 /* hyakko */ = {
 			isa = PBXGroup;
 			children = (
-				F4792F971ED681FA00F6E144 /* AppDelegate.swift */,
-				F4792F991ED681FA00F6E144 /* ViewController.swift */,
-				F4792F9B1ED681FA00F6E144 /* Main.storyboard */,
-				F4792FA11ED681FA00F6E144 /* Assets.xcassets */,
-				F4792FA31ED681FA00F6E144 /* LaunchScreen.storyboard */,
+				F44ABA1C1ED68C1D00A9C4B5 /* src */,
+				F44ABA1B1ED68C0800A9C4B5 /* Resources */,
 				F4792FA61ED681FA00F6E144 /* Info.plist */,
-				F4792F9E1ED681FA00F6E144 /* hyakko.xcdatamodeld */,
 			);
 			path = hyakko;
 			sourceTree = "<group>";
@@ -74,9 +130,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F4792FA91ED681FA00F6E144 /* Build configuration list for PBXNativeTarget "hyakko" */;
 			buildPhases = (
+				346C14C8F9F05B4DC16717B2 /* [CP] Check Pods Manifest.lock */,
 				F4792F901ED681FA00F6E144 /* Sources */,
 				F4792F911ED681FA00F6E144 /* Frameworks */,
 				F4792F921ED681FA00F6E144 /* Resources */,
+				53A340E8E66E49BA6530316F /* [CP] Embed Pods Frameworks */,
+				678CD4E0427BF3E1E3D4075F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,34 +188,74 @@
 			files = (
 				F4792FA51ED681FA00F6E144 /* LaunchScreen.storyboard in Resources */,
 				F4792FA21ED681FA00F6E144 /* Assets.xcassets in Resources */,
-				F4792F9D1ED681FA00F6E144 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		346C14C8F9F05B4DC16717B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		53A340E8E66E49BA6530316F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hyakko/Pods-hyakko-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		678CD4E0427BF3E1E3D4075F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hyakko/Pods-hyakko-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F4792F901ED681FA00F6E144 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4792F9A1ED681FA00F6E144 /* ViewController.swift in Sources */,
 				F4792F981ED681FA00F6E144 /* AppDelegate.swift in Sources */,
 				F4792FA01ED681FA00F6E144 /* hyakko.xcdatamodeld in Sources */,
+				F44ABA201ED68C4D00A9C4B5 /* RecordListViewController.swift in Sources */,
+				F44ABA1E1ED68C3D00A9C4B5 /* RecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F4792F9B1ED681FA00F6E144 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F4792F9C1ED681FA00F6E144 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F4792FA31ED681FA00F6E144 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -265,6 +364,7 @@
 		};
 		F4792FAA1ED681FA00F6E144 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEAFE5391F8AFC400D961833 /* Pods-hyakko.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TD9863Q5PB;
@@ -278,6 +378,7 @@
 		};
 		F4792FAB1ED681FA00F6E144 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4051B4239E550A7815240CFA /* Pods-hyakko.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TD9863Q5PB;
@@ -308,6 +409,7 @@
 				F4792FAB1ED681FA00F6E144 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
