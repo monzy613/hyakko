@@ -147,6 +147,12 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
         view.addSubview(recordingButton)
 
         setupConstraints()
+
+        AVAudioSession.sharedInstance().requestRecordPermission { granted in
+            if !granted {
+                self.present(HintViewController(), animated: true, completion: nil)
+            }
+        }
     }
 
     // MARK: private
