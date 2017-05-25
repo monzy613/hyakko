@@ -9,4 +9,11 @@
 import UIKit
 
 class RecordListViewController: UIViewController {
+
+    // MARK: life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = .black
+    }
 }

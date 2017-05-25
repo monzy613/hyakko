@@ -14,6 +14,7 @@
 		F4792FA01ED681FA00F6E144 /* hyakko.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4792F9E1ED681FA00F6E144 /* hyakko.xcdatamodeld */; };
 		F4792FA21ED681FA00F6E144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4792FA11ED681FA00F6E144 /* Assets.xcassets */; };
 		F4792FA51ED681FA00F6E144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4792FA31ED681FA00F6E144 /* LaunchScreen.storyboard */; };
+		F4A550521ED6AEB50068D715 /* RecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A550511ED6AEB50068D715 /* RecordingButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F4792FA11ED681FA00F6E144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4792FA41ED681FA00F6E144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4792FA61ED681FA00F6E144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4A550511ED6AEB50068D715 /* RecordingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		F44ABA211ED68C6200A9C4B5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F4A550511ED6AEB50068D715 /* RecordingButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4792F981ED681FA00F6E144 /* AppDelegate.swift in Sources */,
+				F4A550521ED6AEB50068D715 /* RecordingButton.swift in Sources */,
 				F4792FA01ED681FA00F6E144 /* hyakko.xcdatamodeld in Sources */,
 				F44ABA201ED68C4D00A9C4B5 /* RecordListViewController.swift in Sources */,
 				F44ABA1E1ED68C3D00A9C4B5 /* RecordViewController.swift in Sources */,
