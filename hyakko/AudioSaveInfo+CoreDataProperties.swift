@@ -2,7 +2,7 @@
 //  AudioSaveInfo+CoreDataProperties.swift
 //  hyakko
 //
-//  Created by Monzy Zhang on 25/05/2017.
+//  Created by Monzy Zhang on 26/05/2017.
 //  Copyright © 2017 MonzyZhang. All rights reserved.
 //
 
@@ -16,7 +16,7 @@ extension AudioSaveInfo {
         return NSFetchRequest<AudioSaveInfo>(entityName: "AudioSaveInfo")
     }
 
-    @NSManaged public var filePath: String?
+    @NSManaged public var fileName: String?
     @NSManaged public var saveDate: NSDate?
     @NSManaged public var displayName: String?
 

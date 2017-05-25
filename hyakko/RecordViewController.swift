@@ -233,7 +233,7 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
             let tempFilePath = documentsDirectory.appendingPathComponent(kNameTempFile)
             let newFilePath = (dataPath as NSString).appendingPathComponent(newFileName)
 
-            CoreDataConnect.shared().save(displayName: displayName, saveDate: saveDate, filePath: newFilePath)
+            CoreDataConnect.shared().save(displayName: displayName, saveDate: saveDate, fileName: newFileName)
             do {
                 // newFilePath
                 try FileManager.default.copyItem(atPath: tempFilePath, toPath: newFilePath)

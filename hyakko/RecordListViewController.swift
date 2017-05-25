@@ -11,6 +11,7 @@ import AVFoundation
 
 class RecordListViewController: UITableViewController, AVAudioPlayerDelegate {
     var audioList: [AudioSaveInfo] = []
+    var currentPlayingIndexPath: IndexPath?
     var player: AVAudioPlayer?
 
     override func viewDidLoad() {
@@ -39,7 +40,18 @@ class RecordListViewController: UITableViewController, AVAudioPlayerDelegate {
                 self.player = nil
             }
         }
-        if let filePath = audioList[indexPath.row].filePath {
+        if let playingIndexPath = currentPlayingIndexPath {
+            if indexPath == playingIndexPath {
+                currentPlayingIndexPath = nil
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+                return
+            }
+        }
+        if let fileName = audioList[indexPath.row].fileName {
+            let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            let documentsDirectory = paths[0] as NSString
+            let dataPath = documentsDirectory.appendingPathComponent("save")
+            let filePath = (dataPath as NSString).appendingPathComponent(fileName)
             let url = URL(fileURLWithPath: filePath)
             do {
                 player = try AVAudioPlayer(contentsOf: url)
@@ -49,12 +61,19 @@ class RecordListViewController: UITableViewController, AVAudioPlayerDelegate {
                 fatalError("\(error)")
             }
         }
+        currentPlayingIndexPath = indexPath
+        tableView.reloadData()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(VoiceNoteCell.self), for: indexPath) as! VoiceNoteCell
         let audio = audioList[indexPath.row]
-        cell.textLabel?.text = audio.displayName
+        cell.titleLabel.text = audio.displayName
+        if indexPath == currentPlayingIndexPath {
+            cell.playing = true
+        } else {
+            cell.playing = false
+        }
 
         return cell
     }
@@ -62,5 +81,9 @@ class RecordListViewController: UITableViewController, AVAudioPlayerDelegate {
     // MARK: AVAudioPlayerDelegate
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         self.player = nil
+        if let indexPath = currentPlayingIndexPath {
+            currentPlayingIndexPath = nil
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
 }

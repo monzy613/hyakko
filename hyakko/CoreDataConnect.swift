@@ -26,14 +26,14 @@ class CoreDataConnect {
         return instance!
     }
 
-    func save(displayName: String, saveDate: Date, filePath: String) {
+    func save(displayName: String, saveDate: Date, fileName: String) {
         let audioSaveInfo =
             NSEntityDescription.insertNewObject(
                 forEntityName: kEntityName, into: context)
                 as! AudioSaveInfo
         audioSaveInfo.displayName = displayName
         audioSaveInfo.saveDate = saveDate as NSDate
-        audioSaveInfo.filePath = filePath
+        audioSaveInfo.fileName = fileName
 
         do {
             try context.save()
@@ -54,10 +54,10 @@ class CoreDataConnect {
         return []
     }
 
-    func remove(filePath: String) {
+    func remove(fileName: String) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: kEntityName)
         request.predicate = nil
-        request.predicate = NSPredicate(format: "filePath = \(filePath)")
+        request.predicate = NSPredicate(format: "fileName = \(fileName)")
 
         do {
             let results = try context.fetch(request) as! [AudioSaveInfo]

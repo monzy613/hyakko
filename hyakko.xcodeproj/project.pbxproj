@@ -16,9 +16,9 @@
 		F4A550521ED6AEB50068D715 /* RecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A550511ED6AEB50068D715 /* RecordingButton.swift */; };
 		F4E90D291ED7163400B40804 /* RecordListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D281ED7163400B40804 /* RecordListViewController.swift */; };
 		F4E90D2C1ED7181700B40804 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D2B1ED7181700B40804 /* CoreDataConnect.swift */; };
-		F4E90D2F1ED71C3F00B40804 /* AudioSaveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D2D1ED71C3F00B40804 /* AudioSaveInfo.swift */; };
-		F4E90D301ED71C3F00B40804 /* AudioSaveInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D2E1ED71C3F00B40804 /* AudioSaveInfo+CoreDataProperties.swift */; };
 		F4E90D321ED71D6100B40804 /* VoiceNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D311ED71D6100B40804 /* VoiceNoteCell.swift */; };
+		F4E90D351ED769CC00B40804 /* AudioSaveInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D331ED769CC00B40804 /* AudioSaveInfo.swift */; };
+		F4E90D361ED769CC00B40804 /* AudioSaveInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E90D341ED769CC00B40804 /* AudioSaveInfo+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +35,9 @@
 		F4A550511ED6AEB50068D715 /* RecordingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordingButton.swift; sourceTree = "<group>"; };
 		F4E90D281ED7163400B40804 /* RecordListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordListViewController.swift; sourceTree = "<group>"; };
 		F4E90D2B1ED7181700B40804 /* CoreDataConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
-		F4E90D2D1ED71C3F00B40804 /* AudioSaveInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioSaveInfo.swift; sourceTree = "<group>"; };
-		F4E90D2E1ED71C3F00B40804 /* AudioSaveInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioSaveInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F4E90D311ED71D6100B40804 /* VoiceNoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoiceNoteCell.swift; sourceTree = "<group>"; };
+		F4E90D331ED769CC00B40804 /* AudioSaveInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioSaveInfo.swift; sourceTree = "<group>"; };
+		F4E90D341ED769CC00B40804 /* AudioSaveInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AudioSaveInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,8 +140,8 @@
 		F4E90D131ED711D000B40804 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				F4E90D2D1ED71C3F00B40804 /* AudioSaveInfo.swift */,
-				F4E90D2E1ED71C3F00B40804 /* AudioSaveInfo+CoreDataProperties.swift */,
+				F4E90D331ED769CC00B40804 /* AudioSaveInfo.swift */,
+				F4E90D341ED769CC00B40804 /* AudioSaveInfo+CoreDataProperties.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -279,13 +279,13 @@
 			files = (
 				F4792F981ED681FA00F6E144 /* AppDelegate.swift in Sources */,
 				F4E90D321ED71D6100B40804 /* VoiceNoteCell.swift in Sources */,
-				F4E90D301ED71C3F00B40804 /* AudioSaveInfo+CoreDataProperties.swift in Sources */,
 				F4E90D291ED7163400B40804 /* RecordListViewController.swift in Sources */,
+				F4E90D361ED769CC00B40804 /* AudioSaveInfo+CoreDataProperties.swift in Sources */,
 				F4A550521ED6AEB50068D715 /* RecordingButton.swift in Sources */,
-				F4E90D2F1ED71C3F00B40804 /* AudioSaveInfo.swift in Sources */,
 				F4792FA01ED681FA00F6E144 /* hyakko.xcdatamodeld in Sources */,
 				F4E90D2C1ED7181700B40804 /* CoreDataConnect.swift in Sources */,
 				F44ABA1E1ED68C3D00A9C4B5 /* RecordViewController.swift in Sources */,
+				F4E90D351ED769CC00B40804 /* AudioSaveInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
