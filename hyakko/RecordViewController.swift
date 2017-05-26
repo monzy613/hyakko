@@ -17,6 +17,8 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
 
     var isPlaying = false
 
+    var recordingTimer: Timer?
+
     var isRecording: Bool {
         return self.recordingButton.isRecording
     }
@@ -160,6 +162,11 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
         playButton.isHidden = false
         hintLabel.isHidden = true
 
+        recorder?.stop()
+
+        recordingTimer?.invalidate()
+        recordingTimer = nil
+
         // animating
         UIView.animate(withDuration: 0.5) {
             var newDeleteCenter = self.deleteButton.center
@@ -300,7 +307,7 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
         hintLabel.text = "松开完成"
         hintLabel.isHidden = true
 
-        recorder?.stop()
+        finishRecording()
 
         do {
             try AVAudioSession.sharedInstance().setActive(false)
@@ -313,6 +320,11 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
     func didEndTouchOutOfButton(button: RecordingButton) {
         hintLabel.text = "松开完成"
         hintLabel.isHidden = true
+
+        recordingTimer?.invalidate()
+        recordingTimer = nil
+
+        recorder?.stop()
     }
 
     // start recording
@@ -329,13 +341,22 @@ class RecordViewController: UIViewController, RecordingButtonDelegate, AVAudioRe
                 }
 
                 recorder.record()
+
+                recordingTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
+                    if let isRecording = self?.isRecording {
+                        if !isRecording {
+                            self?.recordingTimer?.invalidate()
+                            self?.recordingTimer = nil
+                        } else {
+                            let timeInterval = Int(recorder.currentTime)
+                            let minutes = timeInterval / 60
+                            let seconds = timeInterval % 60
+                            self?.timeLabel.text = "\(String(format: "%02d", minutes)):\(String(format: "%02d", seconds))"
+                        }
+                    }
+                })
             }
         }
-    }
-
-    // MARK: AVAudioRecorderDelegate
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        finishRecording()
     }
 
     // MARK: AVAudioPlayerDelegate
